@@ -19,9 +19,12 @@ public class Parqueadero {
     public double registrarSalida(String placa){
         for (Vehiculo vehiculo : this.Vehiculos) {
             if(vehiculo.getPlaca().equals(placa)){
-                var horaSalida = LocalDateTime.now();
-                long minutos = Duration.between(vehiculo.getHoraEntrada(), horaSalida).toMinutes();
-                long horas = (long) Math.ceil(minutos / 60.0);
+                LocalDateTime horaSalida = LocalDateTime.now();
+                Duration duracion = Duration.between(vehiculo.getHoraEntrada(), horaSalida);
+                long horas = duracion.toHours();
+                if (duracion.toMinutes() % 60 > 0) {
+                    horas++; // Redondeo hacia arriba si hay fracción de hora
+                }
                 double costo = calcularCosto(vehiculo, horas);
                 this.Vehiculos.remove(vehiculo);
                 System.out.println("Vehículo retirado: " + placa);

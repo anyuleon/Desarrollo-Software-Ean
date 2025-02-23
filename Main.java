@@ -12,12 +12,13 @@ public class Main {
             System.out.println("3. Consultar estado del parqueadero");
             System.out.println("4. Salir");
             System.out.print("Seleccione una opcion: ");
-            var opcion = scanner.nextLine();
+            int opcion = scanner.nextInt();
+            scanner.nextLine();
 
             switch (opcion) {
-                case "1":
+                case 1:
                     System.out.print("Ingrese tipo de vehículo (1: Automovil, 2: Motocicleta, 3: Camion): ");
-                    var tipo = scanner.nextLine();
+                    int tipo = scanner.nextInt();
                     scanner.nextLine();
                     System.out.print("Ingrese placa: ");
                     String placa = scanner.nextLine();
@@ -26,22 +27,22 @@ public class Main {
                     System.out.print("Ingrese modelo: ");
                     String modelo = scanner.nextLine();
 
-                    if (tipo == "1") {
+                    if (tipo == 1) {
                         System.out.print("Ingrese tipo de combustible: ");
                         String combustible = scanner.nextLine();
                         parqueadero.registrarEntrada(new Automovil(placa, marca, modelo, combustible));
-                    } else if (tipo == "2") {
+                    } else if (tipo == 2) {
                         System.out.print("Ingrese cilindraje: ");
                         int cilindraje = scanner.nextInt();
                         parqueadero.registrarEntrada(new Motocicleta(placa, marca, modelo, cilindraje));
-                    } else if (tipo == "3") {
+                    } else if (tipo == 3) {
                         System.out.print("Ingrese capacidad de carga (toneladas): ");
                         double capacidad = scanner.nextDouble();
                         parqueadero.registrarEntrada(new Camion(placa, marca, modelo, capacidad));
                     }
                     break;
 
-                case "2":
+                case 2:
                     System.out.print("Ingrese placa del vehiculo: ");
                     String placaSalida = scanner.nextLine();
                     try {
@@ -51,14 +52,14 @@ public class Main {
                     }
                     break;
 
-                case "3":
+                case 3:
                     System.out.println("Vehiculos en el parqueadero:");
                     for (Vehiculo v : parqueadero.consultarEstado()) {
                         System.out.println(v.getPlaca());
                     }
                     break;
 
-                case "4":
+                case 4:
                     System.out.println("Vuelva pronto");
                     scanner.close();
                     return;
