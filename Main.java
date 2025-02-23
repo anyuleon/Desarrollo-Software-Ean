@@ -12,36 +12,45 @@ public class Main {
             System.out.println("3. Consultar estado del parqueadero");
             System.out.println("4. Salir");
             System.out.print("Seleccione una opcion: ");
-            int opcion = scanner.nextInt();
+            var selected = 0;
+            try{
+                int opcion = scanner.nextInt();
+                selected = opcion;
+            } catch (Exception ex){
+
+            }
+
             scanner.nextLine();
 
-            switch (opcion) {
+            switch (selected) {
                 case 1:
                     System.out.print("Ingrese tipo de vehículo (1: Automovil, 2: Motocicleta, 3: Camion): ");
-                    int tipo = scanner.nextInt();
-                    scanner.nextLine();
-                    System.out.print("Ingrese placa: ");
-                    String placa = scanner.nextLine();
-                    System.out.print("Ingrese marca: ");
-                    String marca = scanner.nextLine();
-                    System.out.print("Ingrese modelo: ");
-                    String modelo = scanner.nextLine();
-
-                    if (tipo == 1) {
-                        System.out.print("Ingrese tipo de combustible: ");
-                        String combustible = scanner.nextLine();
-                        parqueadero.registrarEntrada(new Automovil(placa, marca, modelo, combustible));
-                    } else if (tipo == 2) {
-                        System.out.print("Ingrese cilindraje: ");
-                        int cilindraje = scanner.nextInt();
-                        parqueadero.registrarEntrada(new Motocicleta(placa, marca, modelo, cilindraje));
-                    } else if (tipo == 3) {
-                        System.out.print("Ingrese capacidad de carga (toneladas): ");
-                        double capacidad = scanner.nextDouble();
-                        parqueadero.registrarEntrada(new Camion(placa, marca, modelo, capacidad));
+                    try{
+                        int tipo = scanner.nextInt();
+                        scanner.nextLine();
+                        System.out.print("Ingrese placa: ");
+                        String placa = scanner.nextLine();
+                        System.out.print("Ingrese marca: ");
+                        String marca = scanner.nextLine();
+                        System.out.print("Ingrese modelo: ");
+                        String modelo = scanner.nextLine();
+                        if (tipo == 1) {
+                            System.out.print("Ingrese tipo de combustible: ");
+                            String combustible = scanner.nextLine();
+                            parqueadero.registrarEntrada(new Automovil(placa, marca, modelo, combustible));
+                        } else if (tipo == 2) {
+                            System.out.print("Ingrese cilindraje: ");
+                            int cilindraje = scanner.nextInt();
+                            parqueadero.registrarEntrada(new Motocicleta(placa, marca, modelo, cilindraje));
+                        } else if (tipo == 3) {
+                            System.out.print("Ingrese capacidad de carga (toneladas): ");
+                            double capacidad = scanner.nextDouble();
+                            parqueadero.registrarEntrada(new Camion(placa, marca, modelo, capacidad));
+                        }
+                    } catch(Exception ex) {
+                        System.out.println("Tipo no válido");
                     }
                     break;
-
                 case 2:
                     System.out.print("Ingrese placa del vehiculo: ");
                     String placaSalida = scanner.nextLine();
