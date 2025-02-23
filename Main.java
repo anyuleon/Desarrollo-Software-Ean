@@ -34,18 +34,33 @@ public class Main {
                         String marca = scanner.nextLine();
                         System.out.print("Ingrese modelo: ");
                         String modelo = scanner.nextLine();
-                        if (tipo == 1) {
-                            System.out.print("Ingrese tipo de combustible: ");
-                            String combustible = scanner.nextLine();
-                            parqueadero.registrarEntrada(new Automovil(placa, marca, modelo, combustible));
-                        } else if (tipo == 2) {
-                            System.out.print("Ingrese cilindraje: ");
-                            int cilindraje = scanner.nextInt();
-                            parqueadero.registrarEntrada(new Motocicleta(placa, marca, modelo, cilindraje));
-                        } else if (tipo == 3) {
-                            System.out.print("Ingrese capacidad de carga (toneladas): ");
-                            double capacidad = scanner.nextDouble();
-                            parqueadero.registrarEntrada(new Camion(placa, marca, modelo, capacidad));
+                        switch(tipo){
+                            case 1:
+                                System.out.print("Ingrese tipo de combustible: ");
+                                String combustible = scanner.nextLine();
+                                parqueadero.registrarEntrada(new Automovil(placa, marca, modelo, combustible));
+                                break;
+                            case 2:
+                                System.out.print("Ingrese cilindraje: ");
+                                try{
+                                    int cilindraje = scanner.nextInt();
+                                    parqueadero.registrarEntrada(new Motocicleta(placa, marca, modelo, cilindraje));
+                                } catch(Exception ex){
+                                    System.out.println("El cilindraje ingresado no es válido");
+                                }
+                                break;
+                            case 3:
+                                System.out.print("Ingrese capacidad de carga (toneladas): ");
+                                try {
+                                    double capacidad = scanner.nextDouble();
+                                    parqueadero.registrarEntrada(new Camion(placa, marca, modelo, capacidad));
+                                } catch (Exception e) {
+                                    System.out.println("La capacidad ingresada no es válido");
+                                }
+                                break;
+                            default:
+                                System.out.println("El tipo de vehiculo que ingreso no es válido");
+                                break;
                         }
                     } catch(Exception ex) {
                         System.out.println("Tipo no válido");
