@@ -22,6 +22,7 @@ Adicionalmente, este espacio también servirá para referenciar los cursos onlin
 
   <h1>Colaboradores</h1>
 
+  [Perfil de @YisethGomez](https://github.com/YisethGomez)
   [Perfil de @anyuleon](https://github.com/anyuleon)
 
 
