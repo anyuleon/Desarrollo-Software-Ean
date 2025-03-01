@@ -82,8 +82,13 @@ public class VistaImpuestos extends JFrame{
     public double getAvaluo() { return Double.parseDouble(txtAvaluo.getText()); }
     public String getTipoUso() { return (String) cbTipoUso.getSelectedItem(); }
 
-    public void setResultado(double resultado) {
-        lblResultado.setText("Resultado: " + resultado);
+    public void setResultado(double resultado, String tipoUso) {
+        if (tipoUso.equalsIgnoreCase("Público")) {
+            lblResultado.setText("Resultado: Según la Ley 488 de 1998, en su artículo 141, su vehículo no está gravado del impuesto vehicular.");
+        } else {
+            lblResultado.setText("Resultado: " + resultado);
+        }
+        pack();
     }
 
     public void agregarListener(ActionListener listener) {

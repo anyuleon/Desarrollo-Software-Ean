@@ -36,6 +36,6 @@ public class ControladorImpuestos {
         );
 
         double impuesto = calculadora.calcularImpuesto(vehiculo);
-        vista.setResultado(impuesto);
+        vista.setResultado(impuesto, vista.getTipoUso());
     }
 }
