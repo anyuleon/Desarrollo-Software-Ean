@@ -7,7 +7,7 @@
 ✔ Frontend dinámico (React)<br>
 
 
-🛠 Tecnologías<br>
+<h1>🛠 Tecnologías</h1>
 ✔ Área	Tecnologías<br>
 ✔ Base de Datos	MySQL, XAMPP<br>
 ✔ Backend	Node.js, Express, Axios<br>
